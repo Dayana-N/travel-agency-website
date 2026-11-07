@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <title>Emerald Escapes</title>
+  </head>
+  <body>
+    <!-- Header section -->
+    <header>
+      <nav class="navbar navbar-expand-sm">
+        <div class="container-fluid">
+          <!-- Logo linked to home-->
+          <a class="navbar-brand" href="index.html" aria-label="Go to home page"
+            >Emerald Escapes</a
+          >
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Navigation bar with links to sections -->
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html"> Home </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="experiences.html"> Experiences </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="contact.html"
+                >
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Hero image section -->
+      <section class="hero-section" id="hero-section">
+        <div class="hero-image-contact">
+          <div class="hero-div">
+            <h2>Contact Us</h2>
+            <p>Have a question or ready to plan your next Irish adventure?</p>
+          </div>
+        </div>
+      </section>
+    </header>
+    <main>
+      <section class="contact-section">
+        <div class="contact-container">
+          <!-- contact information -->
+          <div class="contact-info">
+            <p class="section-label">Get in Touch</p>
+            <h1>Let's Plan Your<br />Next Adventure</h1>
+            <div class="heading-divider"></div>
+            <p class="contact-intro">
+              Whether you're looking to book a trip, have a question about a
+              destination, or need more information, our friendly team is here
+              to help.
+            </p>
+            <div class="contact-details">
+              <div class="contact-detail">
+                <h3>Email Us</h3>
+                <a href="mailto:hello@emeraldescapes.ie">
+                  hello@emeraldescapes.ie
+                </a>
+              </div>
+              <div class="contact-detail">
+                <h3>Call Us</h3>
+                <a href="tel:+353411234567"> +353 41 123 4567 </a>
+              </div>
+              <div class="contact-detail">
+                <h3>Visit Us</h3>
+                <p>Drogheda, Co. Louth, Ireland</p>
+              </div>
+            </div>
+            <div class="contact-image">
+              <img src="./assets/images/ainars-djatlevskis.jpg" alt="" />
+            </div>
+          </div>
+          <!-- right column for form -->
+          <div class="contact-form-container">
+            <h2>Booking Enquiry</h2>
+            <p>
+              Fill in the form below and we'll get back to you as soon as
+              possible.
+            </p>
+
+            <form id="contact-form">
+              <!-- Name -->
+              <div class="form-group">
+                <label for="name">Name <span class="required">*</span></label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Name"
+                  autocomplete="name"
+                  required
+                />
+                <span class="error-message" id="name-error"></span>
+              </div>
+
+              <!-- Email and Phone -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="email"
+                    >Email <span class="required">*</span></label
+                  >
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Email"
+                    autocomplete="email"
+                    required
+                  />
+                  <span class="error-message" id="email-error"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="phone">Phone</label>
+                  <input
+                    type="phone"
+                    name="phone"
+                    id="phone"
+                    placeholder="Phone"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="query-type">
+                  Query Type <span class="required">*</span>
+                </label>
+                <select id="query-type" name="queryType" required>
+                  <option value="">Select a query type</option>
+                  <option value="booking">Booking</option>
+                  <option value="payment">Payment</option>
+                  <option value="general">General Information</option>
+                  <option value="other">Other</option>
+                </select>
+                <span class="error-message" id="query-type-error"></span>
+              </div>
+              <!-- Message -->
+              <div class="form-group">
+                <label for="message">
+                  Message <span class="required">*</span>
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="6"
+                  minlength="20"
+                  maxlength="500"
+                  placeholder="Tell us about your enquiry"
+                  required
+                ></textarea>
+                <span class="error-message" id="message-error"></span>
+              </div>
+              
+              <div id="form-feedback" role="status" aria-live="polite"></div>
+              <!-- Submit -->
+              <button type="submit" class="submit-btn">Send Enquiry</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-container">
+        <!-- company Info -->
+        <div class="footer-section">
+          <h3>Emerald Escapes</h3>
+          <p>
+            Discover the beauty of Ireland with unforgettable travel
+            experiences, from coastal adventures to charming countryside
+            escapes.
+          </p>
+        </div>
+
+        <!-- Links Section -->
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="experiences.html">Experiences</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer-section">
+          <h3>Get in Touch</h3>
+          <p>
+            <a href="mailto:hello@emeraldescapes.ie">hello@emeraldescapes.ie</a>
+          </p>
+          <p>
+            <a href="tel:+35312345678">+35312345678</a>
+          </p>
+          <p>Dublin, Ireland</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Emerald Escapes. All rights reserved.</p>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>
