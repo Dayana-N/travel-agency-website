@@ -1,11 +1,13 @@
 const experienceContainer = document.getElementById("experiences-container");
 const searchInput = document.getElementById("experience-search");
 const catgeoryFilter = document.getElementById("category-filter");
+const priceFilter = document.getElementById("price-filter");
 
 let allExperiences = [];
 
 searchInput.addEventListener("input", filterExperiences);
 catgeoryFilter.addEventListener("change", filterExperiences);
+priceFilter.addEventListener("change", filterExperiences);
 
 function loadExperiences() {
   fetch("assets/data/experiences.json")
@@ -53,6 +55,7 @@ function displayExperiences(experiences) {
             <div class="experience-content">
               <h3>${experience.title}</h3>
               <p class="experience-location">${experience.location}</p>
+              <p class="experience-description">${experience.shortDescription}</p>
               <div class="experience-details">
                 <span>${experience.duration}</span> <span>${price}</span>
               </div>
@@ -68,14 +71,32 @@ function displayExperiences(experiences) {
 function filterExperiences() {
   const searchTerm = searchInput.value.toLowerCase().trim();
   const selectedCategory = catgeoryFilter.value;
+  const selectedPrice = priceFilter.value;
 
   const filteredExperiences = allExperiences.filter((experience) => {
+    // Search
     const matchesSearch =
       experience.title.toLowerCase().includes(searchTerm) ||
       experience.location.toLowerCase().includes(searchTerm);
+    // Category
     const matchesCategory =
       selectedCategory == "all" || experience.category == selectedCategory;
-    return matchesSearch && matchesCategory;
+
+    let matchesPrice = false;
+    if (selectedPrice === "all") {
+      matchesPrice = true;
+    } else if (experience.price !== null) {
+      const price = experience.price;
+
+      if (selectedPrice === "0-25") {
+        matchesPrice = price < 25;
+      } else if (selectedPrice === "25-50") {
+        matchesPrice = price >= 25 && price < 50;
+      } else if (selectedPrice === "50+") {
+        matchesPrice = price >= 50;
+      }
+    }
+    return matchesSearch && matchesCategory && matchesPrice;
   });
   displayExperiences(filteredExperiences);
 }
@@ -87,7 +108,7 @@ function showExperienceDetails(id) {
   } // Format price
   let price = "Price on request";
   if (experience.price !== null) {
-    const currency = experience.currency === "GBP" ? "£" : "€";
+    const currency = "€";
     price = `From ${currency}${experience.price}`;
   }
   document.getElementById("experienceModalLabel").textContent =
@@ -103,11 +124,11 @@ function showExperienceDetails(id) {
 }
 
 experienceContainer.addEventListener("click", (event) => {
-    const button = event.target.closest(".experience-btn");
-    if (!button) {
-        return;
-    }
-    const id = Number(button.dataset.id);
-    showExperienceDetails(id)
-})
+  const button = event.target.closest(".experience-btn");
+  if (!button) {
+    return;
+  }
+  const id = Number(button.dataset.id);
+  showExperienceDetails(id);
+});
 loadExperiences();
