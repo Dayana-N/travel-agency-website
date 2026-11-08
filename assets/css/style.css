@@ -543,6 +543,62 @@ main {
   background-color: #426b67;
 }
 
+/* Experience modal */
+#experienceModal .modal-content {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+}
+#experienceModal .modal-header {
+  border-bottom: 1px solid var(--color-border);
+}
+#experienceModal .modal-title {
+  font-family: "Playfair Display", serif;
+  color: var(--color-primary);
+  font-size: 1.6rem;
+}
+#experienceModal .modal-body {
+  padding: 25px;
+}
+.modal-experience-image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+#modal-location {
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+#modal-description {
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+.modal-experience-details {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.modal-experience-details p {
+  margin-bottom: 0;
+}
+#experienceModal .modal-footer {
+  border-top: 1px solid var(--color-border);
+  padding: 20px 25px;
+}
+.modal-link {
+  display: inline-block;
+  width: auto;
+  padding: 12px 25px;
+  text-decoration: none;
+  text-align: center;
+}
+.modal-link:hover {
+  color: white;
+}
+
 /* Media Queries */
 
 @media (max-width: 900px) {
